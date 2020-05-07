@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <title>Document</title>
 </head>
@@ -38,25 +38,31 @@
       <form class="col">
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text">X</span>
+            <span class="input-group-text">
+              <i class="fa fa-user" aria-hidden="true"></i>
+            </span>
           </div>
           <input type="text" class="form-control" placeholder="Name" name="name">
         </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text">Y</span>
+            <span class="input-group-text">
+              <i class="fa fa-university" aria-hidden="true"></i>
+            </span>
           </div>
           <input type="text" class="form-control" placeholder="Course" name="course">
         </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text">Z</span>
+            <span class="input-group-text">
+              <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+            </span>
           </div>
           <input type="text" class="form-control" placeholder="Grade" name="grade">
         </div>
         <div class="button-container">
           <button type="submit" class="btn btn-primary btn-lg">Add</button>
-          <button type="button" class="btn btn-secondary btn-lg">Cancel</button>
+          <button type="reset" class="btn btn-secondary btn-lg">Cancel</button>
         </div>
       </form>
     </div>

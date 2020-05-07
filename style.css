@@ -28,3 +28,7 @@
 .btn:hover {
   transform: translate(1px, 1px);
 }
+
+.input-group-text {
+  width: 40px;
+}
