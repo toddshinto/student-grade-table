@@ -13,11 +13,9 @@ class App {
     this.gradeTable.updateGrades(grades);
     for (let i = 0; i < grades.length; i++) {
       gradeAverage = (gradeAverage+grades[i].grade)
-      if (i === grades.length-1) {
-        gradeAverage = (gradeAverage / grades.length);
-        this.pageHeader.updateAverage(gradeAverage);
-      }
     }
+    gradeAverage = (gradeAverage / grades.length);
+    this.pageHeader.updateAverage(gradeAverage);
   }
   getGrades() {
     $.ajax ({
