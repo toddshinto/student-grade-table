@@ -4,5 +4,7 @@ class PageHeader {
   }
   updateAverage(newAverage) {
     console.log(newAverage);
+    var gradeBadge = this.headerElement.querySelector('span');
+    gradeBadge.textContent = newAverage;
   }
 }
