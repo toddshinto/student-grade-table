@@ -15,3 +15,20 @@
 .badge {
   border: 2px solid black;
 }
+
+.table {
+  margin-left: 20px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn:hover {
+  transform: translate(1px, 1px);
+}
+
+.input-group-text {
+  width: 40px;
+}
