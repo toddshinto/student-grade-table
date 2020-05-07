@@ -1,20 +1,24 @@
 class App {
+  constructor(gradeTable) {
+    this.gradeTable = gradeTable;
+    this.handleGetGradesError = this.handleGetGradesError.bind(this);
+    this.handleGetGradesSuccess = this.handleGetGradesSuccess.bind(this);
+  }
   handleGetGradesError(error) {
     console.error(error);
   }
   handleGetGradesSuccess(grades) {
-    console.log(grades);
-  }
-  constructor() {
-    this.handleGetGradesError.bind(this);
-    this.handleGetGradesSuccess.bind(this);
+    this.gradeTable.updateGrades(grades);
   }
   getGrades() {
     $.ajax ({
       method: "GET",
-      url: "https://github.com/Learning-Fuze/sgt_api#get-all-grades",
-      success: this.handleGetGradesSuccess(grades),
-      error: this.handleGetGradesErorr(error)
+      url: "https://sgt.lfzprototypes.com/api/grades",
+      headers: {
+        "X-Access-Token": "xQTXNTY7"
+      },
+      success: this.handleGetGradesSuccess,
+      fail: this.handleGetGradesError,
     })
   }
   start() {
