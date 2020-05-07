@@ -20,4 +20,22 @@ class GradeTable {
       tbody.appendChild(row);
     }
   }
+  onDeleteClick(deleteGrade) {
+    this.deleteGrade = deleteGrade;
+  }
+  renderGradeRow(data, deleteGrade) {
+    var row = document.createElement('tr');
+    var tdName = document.createElement('td');
+    var tdCourse = document.createElement('td');
+    var tdGrade = document.createElement('td');
+    var tdDelete = document.createElement('td');
+    var deleteButton = document.createElement('button');
+    tdName.textContent = data.name;
+    tdCourse.textContent = data.course;
+    tdGrade.textContent = data.grade;
+    deleteButton.addEventListener('click', this.deleteGrade(data.id));
+    tdDelete.append(deleteButton);
+    row.append(tdName, tdCourse, tdGrade, tdDelete);
+    return row;
+  }
 }
