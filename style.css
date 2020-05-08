@@ -5,11 +5,10 @@
 }
 
 .main-container {
-  width: 1000px;
   justify-content: center;
   margin: auto;
-  border: 2px solid black;
   padding: 10px;
+  max-width: 1200px;
 }
 
 .badge {
@@ -33,6 +32,28 @@
   width: 40px;
 }
 
+.header {
+  border-bottom: 1px solid rgba(200, 200, 200, .6);
+  margin-bottom: 10px;
+}
 .hidden {
   display: none;
+}
+
+@media (max-aspect-ratio: 1/1) {
+  .header {
+    display: flex;
+    flex-direction: column;
+  }
+  .title {
+    justify-content: center;
+    text-align: center;
+  }
+  .avg-grade {
+    text-align: center;
+    justify-content: center;
+  }
+  .table-container {
+    flex-direction: column;
+  }
 }
