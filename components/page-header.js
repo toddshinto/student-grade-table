@@ -5,6 +5,10 @@ class PageHeader {
   updateAverage(newAverage) {
     console.log(newAverage);
     var gradeBadge = this.headerElement.querySelector('span');
-    gradeBadge.textContent = newAverage;
+    if (!newAverage) {
+      gradeBadge.textContent = "N/A"
+    } else {
+      gradeBadge.textContent = Math.trunc(newAverage);
+    }
   }
 }

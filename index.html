@@ -11,8 +11,8 @@
 </head>
 <body>
   <div class="main-container">
-    <header class="row">
-      <div class="col">
+    <header class="row header">
+      <div class="col title">
         <h1>Student Grade Table</h1>
       </div>
       <div class="col avg-grade">
@@ -31,9 +31,15 @@
           <th scope="col">
             Grade
           </th>
+          <th scope="col">
+            Operations
+          </th>
         </thead>
         <tbody>
         </tbody>
+        <tr id="no-grades" class="hidden">
+          <td colspan="4">No grades recorded.</td>
+        </tr>
       </table>
       <form class="col">
         <div class="input-group mb-3">
