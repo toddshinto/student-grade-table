@@ -5,12 +5,13 @@ class GradeTable {
   }
   updateGrades(grades) {
     console.log(grades);
+    gradesList = grades;
     var tbody = this.tableElement.querySelector('tbody');
     while (tbody.firstChild) {
       tbody.removeChild(tbody.lastChild);
     }
     for (let i = 0; i < grades.length; i++) {
-      var row = this.renderGradeRow(grades[i], this.deleteGrade);
+      var row = this.renderGradeRow(grades[i], this.editGrade, this.deleteGrade);
       tbody.append(row);
     }
     if (tbody.firstChild) {
@@ -22,13 +23,20 @@ class GradeTable {
   onDeleteClick(deleteGrade) {
     this.deleteGrade = deleteGrade;
   }
-  renderGradeRow(data, deleteGrade) {
+  onEditClick(editGrade) {
+    this.editGrade = editGrade;
+  }
+  renderGradeRow(data, editGrade, deleteGrade) {
     var row = document.createElement('tr');
     var tdName = document.createElement('td');
     var tdCourse = document.createElement('td');
     var tdGrade = document.createElement('td');
     var tdDelete = document.createElement('td');
+    var tdEdit = document.createElement('td');
     var deleteButton = document.createElement('button');
+    var editButton = document.createElement('button');
+    editButton.textContent = "EDIT";
+    editButton.classList = "btn-sm btn-warning";
     deleteButton.textContent = "DELETE";
     deleteButton.classList = "btn-sm btn-danger";
     tdName.textContent = data.name;
@@ -37,8 +45,14 @@ class GradeTable {
     deleteButton.addEventListener('click', function() {
       deleteGrade(data.id);
     });
+    editButton.addEventListener('click', function() {
+      editGrade(data.id);
+      document.getElementById('update-button').classList.remove('hidden');
+      document.getElementById('submit-button').classList.add('hidden');
+    })
+    tdEdit.append(editButton);
     tdDelete.append(deleteButton);
-    row.append(tdName, tdCourse, tdGrade, tdDelete);
+    row.append(tdName, tdCourse, tdGrade, tdEdit, tdDelete);
     return row;
   }
 }
