@@ -31,7 +31,10 @@
 .input-group-text {
   width: 40px;
 }
-
+.operations {
+  display: flex;
+  justify-content: space-evenly;
+}
 .header {
   border-bottom: 1px solid rgba(200, 200, 200, .6);
   margin-bottom: 10px;

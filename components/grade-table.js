@@ -31,13 +31,12 @@ class GradeTable {
     var tdName = document.createElement('td');
     var tdCourse = document.createElement('td');
     var tdGrade = document.createElement('td');
-    var tdDelete = document.createElement('td');
     var tdEdit = document.createElement('td');
     var deleteButton = document.createElement('button');
     var editButton = document.createElement('button');
-    editButton.textContent = "EDIT";
+    editButton.innerHTML = '<i class="fas fa-edit"></i>';
     editButton.classList = "btn-sm btn-warning";
-    deleteButton.textContent = "DELETE";
+    deleteButton.innerHTML = '<i class="fas fa-trash"></i>';
     deleteButton.classList = "btn-sm btn-danger";
     tdName.textContent = data.name;
     tdCourse.textContent = data.course;
@@ -49,10 +48,10 @@ class GradeTable {
       editGrade(data.id);
       document.getElementById('update-button').classList.remove('hidden');
       document.getElementById('submit-button').classList.add('hidden');
-    })
-    tdEdit.append(editButton);
-    tdDelete.append(deleteButton);
-    row.append(tdName, tdCourse, tdGrade, tdEdit, tdDelete);
+    });
+    tdEdit.classList += ('operations');
+    tdEdit.append(editButton, deleteButton);
+    row.append(tdName, tdCourse, tdGrade, tdEdit);
     return row;
   }
 }
