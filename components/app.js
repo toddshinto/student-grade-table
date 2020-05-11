@@ -3,6 +3,7 @@ class App {
     this.gradeTable = gradeTable;
     this.pageHeader = pageHeader;
     this.gradeForm = gradeForm;
+    this.getGrades = this.getGrades.bind(this);
     this.handleGetGradesError = this.handleGetGradesError.bind(this);
     this.handleGetGradesSuccess = this.handleGetGradesSuccess.bind(this);
     this.createGrade = this.createGrade.bind(this);
@@ -62,16 +63,17 @@ class App {
     this.getGrades();
   }
   editGrade(id) {
-    var editIndex = gradesList.findIndex(item => item.id === id);
-    document.querySelector('input[name="name"]').value = gradesList[editIndex].name;
-    document.querySelector('input[name="course"]').value = gradesList[editIndex].course;
-    document.querySelector('input[name="grade"]').value = gradesList[editIndex].grade;
+    var editIndex = gradesList.find(item => item.id === id);
+    document.querySelector('input[name="name"]').value = editIndex.name;
+    document.querySelector('input[name="course"]').value = editIndex.course;
+    document.querySelector('input[name="grade"]').value = editIndex.grade;
+    this.gradeForm.setUpdating(id);
   }
   sendUpdate(name, course, grade, id) {
     console.log('sendupdate n, c, g, i', name, course, grade, id);
     $.ajax ({
       method: "PATCH",
-      url: "https://sgt.lfzprototypes.com/api/"+id,
+      url: "https://sgt.lfzprototypes.com/api/grades/"+id,
       data: {
         "name": name,
         "course": course,
